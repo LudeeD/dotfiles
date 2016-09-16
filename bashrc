@@ -47,10 +47,10 @@ export PATH="/usr/local/android-studio/bin:$PATH"
 # Custom PS1
 #export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n >> \[$(tput sgr0)\]"
 #Replaced By Git Function
-
 #Add a Fortune in the beginning
 fortune
 
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 #====# Functions #====#
 
 #Runs ls always after running cd
@@ -90,3 +90,4 @@ function _prompt_command() {
     PS1="`_git_prompt`"'\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n >> \[$(tput sgr0)\]'
 }
 PROMPT_COMMAND=_prompt_command
+

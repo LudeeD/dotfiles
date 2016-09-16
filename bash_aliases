@@ -1,7 +1,11 @@
 #====# Ludee's Aliases #====#
 
-#School
-alias manPic32='cat /opt/pic32mx/include/detpic32.h'
+#Cd Jumps
+
+alias IIA='cd ~/Documents/Ua/Semestre1/IIA'
+alias FR='cd ~/Documents/Ua/Semestre1/FR'
+alias SO='cd ~/Documents/Ua/Semestre1/SO'
+alias AMS='cd ~/Documents/Ua/Semestre1/AMS'
 
 #Just For Fun
 alias starwars='telnet towel.blinkenlights.nl'
@@ -10,7 +14,7 @@ alias starwars='telnet towel.blinkenlights.nl'
 alias o='pcmanfm'
 alias q='exit'
 alias c='clear'
-alias ..='cd .. ; pwd'
+alias ..='cd ..'
 
 #Color Related
 alias ls='ls --color=auto'

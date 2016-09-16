@@ -3,7 +3,7 @@
 #Variables
 dir=~/dotfiles
 backup_dir=~/dotfiles_old
-files="bash_aliases bashrc"
+files="bash_aliases bashrc vimrc"
 
 echo "Waiting..."
 ###
