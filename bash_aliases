@@ -1,4 +1,4 @@
-#====# Ludee's Aliases #====#
+#===============# Ludee's Aliases #==============#
 
 #Cd Jumps
 
@@ -9,12 +9,14 @@ alias AMS='cd ~/Documents/Ua/Semestre1/AMS'
 
 #Just For Fun
 alias starwars='telnet towel.blinkenlights.nl'
+alias work='cat /dev/urandom | hexdump | grep "ca fe"'
 
 #Self-Explanatory
 alias o='pcmanfm'
 alias q='exit'
 alias c='clear'
 alias ..='cd ..'
+alias .='tree .'
 
 #Color Related
 alias ls='ls --color=auto'

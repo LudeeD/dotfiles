@@ -1,6 +1,8 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle                                                                      "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"================ Vimrc =================
+"
+"========================================
+" Vundle
+"========================================
 
 set nocompatible
 filetype off
@@ -20,9 +22,9 @@ Plugin 'jacoborus/tender'
 call vundle#end()
 filetype plugin indent on
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Preferences                                                                 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"========================================
+" Preferences
+"========================================
 
 " Allow backspace on anything
 set backspace=indent,eol,start
@@ -45,26 +47,16 @@ set showcmd         " show command in bottom bar
 set showmatch       " highlight matching parenthesis
 set noshowmode      " Remove default vim mode information
 set cursorline      " Highlight current line
-set laststatus=2    " Force lightline
 
 " Searching
 set ignorecase      " ignore case when searching
 set incsearch       " search as characters are entered
 set hlsearch        " highlight all matches
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Key Bindings                                                                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gvim
-set guioptions-=m   " remove menu bar
-set guioptions-=T   " remove toolbar
-set guioptions-=r   " remove right-hand scroll bar
-set guioptions-=L   " remove left-hand scroll bar
+"========================================
+" Key Bindings
+"========================================
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Key Bindings                                                                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-   
 " Define leader
 let mapleader=" "
  
@@ -79,15 +71,16 @@ nmap <CR> o<Esc>k
 noremap <leader>y "*y
 noremap <leader>yy "*Y
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Theme                                                                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"========================================
+" Theme
+"========================================
+   
 colorscheme tender
 syntax enable
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin Config                                                               "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"========================================
+" PLugin Config
+"========================================
 
 " vim-gutter
 set updatetime=250

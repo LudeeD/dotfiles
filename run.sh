@@ -1,11 +1,13 @@
 #!/bin/bash
 
+###
 #Variables
 dir=~/dotfiles
 backup_dir=~/dotfiles_old
-files="bash_aliases bashrc vimrc"
+files="bash_aliases bashrc vimrc profile"
 
 echo "Waiting..."
+
 ###
 #Creating Backup dir
 mkdir -p $backup_dir
