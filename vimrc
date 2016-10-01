@@ -77,6 +77,7 @@ noremap <leader>yy "*Y
    
 colorscheme tender
 syntax enable
+set laststatus=2
 
 "========================================
 " PLugin Config
