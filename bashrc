@@ -10,6 +10,12 @@
 # PATH Insertions and other Environmental tweaks #
 #================================================#
 
+if [ -f ~/bin/functions.sh ]; then
+    source ~/bin/functions.sh
+else
+    echo "No Personnal functions sourced"
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/android-studio/bin:$PATH
 export LANG=en_US.UTF-8
 
@@ -33,10 +39,10 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Greeting, Prompt                               #
 #================================================#
 
-if [ -x /usr/games/fortune ]; then
-    /usr/games/fortune -so
-fi
-
+#if [ -x /usr/games/fortune ]; then
+#    /usr/games/fortune -so
+#fi
+today
 #See Functions for prompt detail
 PROMPT_COMMAND=_prompt_command
 
@@ -77,13 +83,7 @@ function _git_prompt() {
 
 #Prompt
 function _prompt_command() {
-    PS1="`_git_prompt`"'\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n >> \[$(tput sgr0)\]'
+    PS1="`_git_prompt`"'\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $ \[$(tput sgr0)\]'
 }
 
-
-if [ -f ~/bin/functions.sh ]; then
-    source ~/bin/functions.sh
-else
-    echo "No Personnal functions sourceNo Personnal functions sourcedd"
-fi
 #================================================#
