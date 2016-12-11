@@ -43,7 +43,7 @@ set numberwidth=3       " Width of numbers column
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set showmatch           " highlight matching parenthesis
-a"set noshowmode          " Remove default vim mode information
+set noshowmode          " Remove default vim mode information
 set cursorline          " Highlight current line
 match ErrorMsg '\s\+$'  " Highlight trailing Space
 
