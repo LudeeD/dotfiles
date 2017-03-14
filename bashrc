@@ -10,13 +10,7 @@
 # PATH Insertions and other Environmental tweaks #
 #================================================#
 
-if [ -f ~/bin/functions.sh ]; then
-    source ~/bin/functions.sh
-else
-    echo "No Personnal functions sourced"
-fi
-
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/android-studio/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 
 shopt -s histappend
@@ -27,13 +21,15 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 HISTIGNORE="&:ls:ls *:exit"
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 #================================================#
 # Colors                                         #
 #================================================#
 
-export TERM="xterm-256color"
-
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export TERM="screen-256color"
+export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $\[$(tput sgr0)\]"
 
 #================================================#
 # Greeting, Prompt                               #
@@ -42,9 +38,16 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 #if [ -x /usr/games/fortune ]; then
 #    /usr/games/fortune -so
 #fi
-today
+
+if [ -f ~/bin/ludee_functions.sh ]; then
+    source ~/bin/ludee_functions.sh
+    today
+else
+    echo "No Personnal functions sourced"
+fi
+
 #See Functions for prompt detail
-PROMPT_COMMAND=_prompt_command
+export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $\[$(tput sgr0)\]"
 
 #================================================#
 # Alias                                          #
@@ -54,36 +57,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/dotfiles/bash_aliases_personal ]; then
+    source ~/dotfiles/bash_aliases_personal
+fi
+
 #================================================#
 # Functions                                      #
 #================================================#
 
-#Git
-function _git_prompt() {
-    local git_status="`git status -unormal 2>&1`"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-            local ansi=42
-        elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
-            local ansi=43
-        else
-            local ansi=45
-        fi
-        if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
-            branch=${BASH_REMATCH[1]}
-            test "$branch" != master || branch=' '
-        else
-            # Detached HEAD.  (branch=HEAD is a faster alternative.)
-            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
-                echo HEAD`)"
-        fi
-        echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
-    fi
-}
-
-#Prompt
-function _prompt_command() {
-    PS1="`_git_prompt`"'\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $ \[$(tput sgr0)\]'
-}
-
 #================================================#
+export PATH="$HOME/git_repos/rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/git_repos/rbenv/plugins/ruby-build/bin:$PATH"

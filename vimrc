@@ -18,6 +18,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'roman/golden-ratio'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,7 +46,10 @@ set showcmd             " show command in bottom bar
 set showmatch           " highlight matching parenthesis
 set noshowmode          " Remove default vim mode information
 set cursorline          " Highlight current line
-match ErrorMsg '\s\+$'  " Highlight trailing Space
+set list                " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+set splitbelow
+set splitright
 
 " Searching
 set ignorecase          " ignore case when searching
@@ -69,9 +73,10 @@ nmap <CR> o<Esc>k
 " Theme
 
 set background=dark
+"let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
 syntax enable
-"set laststatus=2
+
 
 "---------------
 " Plugin Config
@@ -89,6 +94,5 @@ nnoremap <silent> <S-F12> :bp<CR>
 set updatetime=250
 
 " vim-airline
-let g:airline_powerline_fonts = 1
 let g:airline_theme = 'hybridline'
 set laststatus=2
