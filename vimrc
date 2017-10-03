@@ -19,6 +19,8 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'roman/golden-ratio'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on

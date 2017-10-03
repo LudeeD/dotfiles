@@ -23,13 +23,14 @@ HISTIGNORE="&:ls:ls *:exit"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+set -o vi
 
 #================================================#
 # Colors                                         #
 #================================================#
 
 export TERM="screen-256color"
-export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $\[$(tput sgr0)\]"
+export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h\$(parse_git_branch)\[\033[00m\]: \w\n $\[$(tput sgr0)\]"
 
 #================================================#
 # Greeting, Prompt                               #
@@ -45,9 +46,6 @@ if [ -f ~/bin/ludee_functions.sh ]; then
 else
     echo "No Personnal functions sourced"
 fi
-
-#See Functions for prompt detail
-export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h : \w\n $\[$(tput sgr0)\]"
 
 #================================================#
 # Alias                                          #
@@ -66,6 +64,11 @@ fi
 #================================================#
 
 #================================================#
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 export PATH="$HOME/git_repos/rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/git_repos/rbenv/plugins/ruby-build/bin:$PATH"
